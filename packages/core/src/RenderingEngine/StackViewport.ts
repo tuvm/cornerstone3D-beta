@@ -2093,7 +2093,9 @@ class StackViewport extends Viewport implements IStackViewport {
     // @ts-ignore: vtkjs incorrect typing
     activeCamera.setFreezeFocalPoint(true);
 
-    this.setVOI(this._getInitialVOIRange(image));
+    this.setVOI(this._getInitialVOIRange(image), {
+      forceRecreateLUTFunction: true,
+    });
     this.setInvertColor(
       imagePixelModule.photometricInterpretation === 'MONOCHROME1'
     );
